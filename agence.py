@@ -40,6 +40,18 @@ class Agence:
     def ajouter_voiture(self, voiture):
         self.liste_voitures.append(voiture)
         
+    def calcul_distance(self, voiture):
+        pass
+    
+    def trier_distance(distances):
+        pass
+    
+    def afficher_voitures_triees():
+        pass
+    
+    def methode_recherche():
+        pass
+        
     
         
         

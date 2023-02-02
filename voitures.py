@@ -22,6 +22,10 @@ class Voiture:
         self.couleur = input("Couleur: ")
         self.vitesse = int(input("Vitesse: "))
     
+    # transformer l'objet voiture en vecteur
+    def voitureToVector(self):
+        return [self.date_circulation, self.kilometrage, self.cylindre, self.vitesse]
+    
 
     def afficher_voiture(self):
         print("\n*** Voiture ***\n")
