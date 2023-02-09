@@ -1,4 +1,7 @@
 from datetime import date
+import numpy as np
+
+
 
 # definir class voiture
 class Voiture:
@@ -11,6 +14,7 @@ class Voiture:
         self.couleur = couleur
         self.vitesse = vitesse
         
+    # fonction de saisie  
     def saisi_voiture(self):
         self.matricule = input("Matricule: ")
         self.marque = input("Marque: ")
@@ -22,7 +26,22 @@ class Voiture:
         self.couleur = input("Couleur: ")
         self.vitesse = int(input("Vitesse: "))
     
-
+    # fonction d'affichage
     def afficher_voiture(self):
-        print("\n*** Voiture ***\n")
-        print(f"Matricule: %s \nMarque: %s \nDate de circulation: %s \nKilometrage: %s \nCylindre: %s \nCouleur: %s \nVitesse: %s" % (self.matricule, self.marque, self.date_circulation, self.kilometrage, self.cylindre, self.couleur, self.vitesse))
+            print("\n*** Voiture ***\n")
+            print(f"Matricule: %s \nMarque: %s \nDate de circulation: %s \nKilometrage: %s \nCylindre: %s \nCouleur: %s \nVitesse: %s" % (self.matricule, self.marque, self.date_circulation, self.kilometrage, self.cylindre, self.couleur, self.vitesse))
+    
+    # transformer l'objet voiture en vecteur
+    def voitureToVector(self):
+        return np.array([self.kilometrage, self.cylindre, self.vitesse])
+
+    # normaliser les données    
+    def normaliser_voiture(voiture):
+        vecteur = voiture.voitureToVector()
+        mean = np.mean(vecteur)
+        std = np.std(vecteur)
+        vecteur_normalise = (vecteur - mean) / std
+        return vecteur_normalise
+
+
+   
