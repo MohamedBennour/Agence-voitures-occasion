@@ -75,7 +75,7 @@ class Agence:
         distance = self.calcule_distance(nouvelle_voiture_normalisee, self.liste_voituresToMatrix())
         distances_triees = self.trier_distance(distance)
         index = distance.index(distances_triees[0])
-        print("La voiture la plus similaire est:")
+        print("\nLa voiture la plus similaire est : ")
         print(self.liste_voitures[index].afficher_voiture())
         
 
