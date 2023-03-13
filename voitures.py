@@ -5,7 +5,7 @@ import numpy as np
 
 # definir class voiture
 class Voiture:
-    def __init__(self, matricule="", marque="", date_circulation=date.today(), kilometrage=0, cylindre=0, couleur="", vitesse=0):
+    def __init__(self, matricule="", marque="", date_circulation="", kilometrage=0, cylindre=0, couleur="", vitesse=0):
         self.matricule = matricule
         self.marque = marque
         self.date_circulation = date_circulation

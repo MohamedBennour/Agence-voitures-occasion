@@ -1,22 +1,22 @@
 import pandas as pd
 import datetime
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.base import BaseEstimator, TransformerMixin
 
 # definir class transformation
-class transformation:
+class Transformation(BaseEstimator, TransformerMixin):
     def __init__(self, dateCirculationTo = "age"):
         self.dateCirculationTo = dateCirculationTo
     
-    def fit(self, df):
+    def fit(self, df, y=None):
         df_ = df.copy()
-        marquecouleur = pd.DataFrame()
         self.OHE = OneHotEncoder()
         self.OHE.fit(df_[['marque']])
         self.OHE1 = OneHotEncoder()
         self.OHE1.fit(df_[['couleur']])
         
     
-    def transformer(self, df):
+    def transformer(self, df, y=None):
         df_transformer = df.copy()
         # suppression de colonne matricule
         df_transformer.drop(columns=['matricule'], axis=1, inplace=True)
@@ -48,11 +48,13 @@ class transformation:
         df_transformer.drop(columns=['couleur'], axis=1, inplace=True)
         
         return df_transformer
-    
+
+"""""    
 if __name__ == '__main__' :
     df = pd.read_csv("voitures.csv",sep=';')
-    trans = transformation("annee")
+    trans = Transformation("annee")
     trans.fit(df)
     
     df_transformer = trans.transformer(df)
     print(df_transformer)
+"""
